@@ -20,29 +20,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // XML'deki bileşenleri Java koduna bağlayalım
+
         imageViewSeason = findViewById(R.id.imageViewSeason);
         radioGroupSeasons = findViewById(R.id.radioGroupSeasons);
 
-        // Mevsim isimleri
+
         String[] seasons = {"Kış", "İlkbahar", "Yaz", "Sonbahar"};
 
-        // Mevsimlere karşılık gelen resimler
+
         Map<String, Integer> seasonImages = new HashMap<>();
         seasonImages.put("Kış", R.drawable.winter);
         seasonImages.put("İlkbahar", R.drawable.spring);
         seasonImages.put("Yaz", R.drawable.summer);
         seasonImages.put("Sonbahar", R.drawable.autumn);
 
-        // RadioButton'ları dinamik olarak ekleyelim
+
         for (String season : seasons) {
             RadioButton radioButton = new RadioButton(this);
             radioButton.setText(season);
-            radioButton.setId(season.hashCode()); // Benzersiz ID atanıyor
+            radioButton.setId(season.hashCode());
             radioGroupSeasons.addView(radioButton);
         }
 
-        // RadioGroup seçim dinleyicisi
+
         radioGroupSeasons.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton selectedButton = findViewById(checkedId);
             if (selectedButton != null) {
